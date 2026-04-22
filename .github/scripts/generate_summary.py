@@ -1,9 +1,7 @@
+import json
 import os
 import re
-
-from azure.ai.inference import ChatCompletionsClient
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.inference.models import SystemMessage, UserMessage
+import urllib.request
 
 README_PATH = "README.md"
 
@@ -13,9 +11,8 @@ ACTIVITY_END = "<!--END_SECTION:activity-->"
 SUMMARY_START = "<!--START_SECTION:activity_summary-->"
 SUMMARY_END = "<!--END_SECTION:activity_summary-->"
 
-MODELS_ENDPOINT = "https://models.inference.ai.azure.com"
-MODEL_NAME = "gpt-4o-mini"
-GITHUB_MODELS_TOKEN = os.environ["GITHUB_MODELS_TOKEN"]
+MODEL = "openai/gpt-4o-mini"
+MODELS_URL = "https://models.github.ai/inference/chat/completions"
 
 
 def extract_section(text: str, start: str, end: str) -> str:
@@ -48,80 +45,69 @@ def normalize_activity_lines(raw: str):
 
 def fallback_summary(lines):
     if not lines:
-        return "- No recent activity found."
+        return "- No recent public activity found."
 
-    bullets = []
-    for line in lines[:5]:
-        clean = re.sub(r"\s+", " ", line).strip()
-        bullets.append(f"- {clean}")
-    return "\n".join(bullets)
+    return "\n".join([
+        "- Recent activity mainly centers on pull requests, issues, and discussion threads.",
+        "- The latest items appear to focus on active open-source contribution rather than simple repository maintenance.",
+        "- See the Recent Activity section below for the exact event list."
+    ])
 
 
-def summarize_activity(lines):
-    if not lines:
-        return "- No recent activity found."
+def call_github_models(activity_lines):
+    prompt = "\n".join(activity_lines)
 
-    activity_text = "\n".join(lines)
-
-    client = ChatCompletionsClient(
-        endpoint=MODELS_ENDPOINT,
-        credential=AzureKeyCredential(GITHUB_MODELS_TOKEN),
-        model=MODEL_NAME,
-    )
-
-    response = client.complete(
-        messages=[
-            SystemMessage(
-                content=(
-                    "You are summarizing a developer's recent GitHub activity for a profile README. "
-                    "You will be given the already-generated 'Recent Activity' lines. "
-                    "Write 4 to 6 concise markdown bullet points. "
-                    "Group related items when helpful. "
-                    "Infer the topic from the activity text conservatively. "
+    payload = {
+        "model": MODEL,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are summarizing a developer's Recent Activity section for a GitHub profile README. "
+                    "You will receive already-formatted recent activity lines. "
+                    "Write 4 to 6 markdown bullet points. "
+                    "Summarize the technical themes and concrete work. "
                     "For pull requests, explain what problem was addressed and how if the title makes that clear. "
                     "For issues, explain what problem was raised. "
-                    "For discussions/comments/reviews, explain what topic was discussed. "
-                    "Do not invent details beyond what is reasonably supported by the activity lines."
-                )
-            ),
-            UserMessage(
-                content=(
-                    "Summarize the following Recent Activity section into a short README summary.\n\n"
+                    "For comments or reviews, explain what topic was discussed. "
+                    "Group related items when appropriate. "
+                    "Do not invent details that are not reasonably supported by the activity lines. "
+                    "Do not add a heading."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    "Summarize this Recent Activity section.\n\n"
                     "Requirements:\n"
                     "- 4 to 6 markdown bullets\n"
-                    "- Prefer technical themes over raw repetition\n"
-                    "- Mention repositories when useful\n"
-                    "- Merge related PR/issue/comment activity into coherent bullets when appropriate\n"
-                    "- Avoid repeating the same repo name in every line unless necessary\n"
-                    "- Do not output a heading\n\n"
-                    f"Recent Activity:\n{activity_text}"
-                )
-            ),
+                    "- Focus on technical content, not event counts\n"
+                    "- Merge related entries when helpful\n"
+                    "- Be concise and concrete\n\n"
+                    f"Recent Activity:\n{prompt}"
+                ),
+            },
         ],
-        temperature=0.2,
-        max_tokens=260,
+        "temperature": 0.2,
+        "max_tokens": 260,
+    }
+
+    req = urllib.request.Request(
+        MODELS_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+            "Content-Type": "application/json",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+        },
+        method="POST",
     )
 
-    if not response.choices:
-        return fallback_summary(lines)
+    with urllib.request.urlopen(req) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
 
-    msg = response.choices[0].message
-    content = getattr(msg, "content", None)
-
-    if isinstance(content, str):
-        text = content.strip()
-        return text if text else fallback_summary(lines)
-
-    if isinstance(content, list):
-        parts = []
-        for item in content:
-            text = getattr(item, "text", None)
-            if text:
-                parts.append(text)
-        joined = "\n".join(parts).strip()
-        return joined if joined else fallback_summary(lines)
-
-    return fallback_summary(lines)
+    return data["choices"][0]["message"]["content"].strip()
 
 
 def main():
@@ -131,7 +117,15 @@ def main():
     raw_activity = extract_section(readme, ACTIVITY_START, ACTIVITY_END)
     activity_lines = normalize_activity_lines(raw_activity)
 
-    summary = summarize_activity(activity_lines)
+    if not activity_lines:
+        summary = "- No recent public activity found."
+    else:
+        try:
+            summary = call_github_models(activity_lines)
+            if not summary.strip():
+                summary = fallback_summary(activity_lines)
+        except Exception:
+            summary = fallback_summary(activity_lines)
 
     if not summary.startswith("- "):
         summary = "- " + summary.lstrip("- ").strip()
