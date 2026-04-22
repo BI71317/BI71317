@@ -38,7 +38,7 @@ jobs:
         env:
           GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
         run: |
-          python .github/scripts/generate_recent_activity_summary.py
+          python .github/scripts/generate_summary.py
 
       - name: Commit changes
         run: |
