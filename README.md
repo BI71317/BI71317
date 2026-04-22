@@ -7,9 +7,13 @@ I'm interested in compilers, systems, security, and GPUs.
 My work mainly focuses on LLVM-based analysis, low-level performance and correctness issues.
 
 ## Links
-[Tistory](https://swc0317.tistory.com/): https://swc0317.tistory.com/
+# [Tistory](https://swc0317.tistory.com/): 
 
-[Contact me](swc0317@unist.ac.kr) swc0317@unist.ac.kr / swchoi@nshc.net
+https://swc0317.tistory.com/
+
+# [Contact me](swc0317@unist.ac.kr) 
+
+swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent Activity
 <!--START_SECTION:activity-->
