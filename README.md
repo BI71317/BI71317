@@ -17,10 +17,17 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened and merged multiple pull requests in the `exaloop/codon` repository, including PR [#793](https://github.com/exaloop/codon/pull/793) which likely addresses a specific feature or bug (details not specified), and PR [#784](https://github.com/exaloop/codon/pull/784) and PR [#771](https://github.com/exaloop/codon/pull/771) which have been successfully integrated into the main codebase.
-- Contributed to the `UoB-HPC/BabelStream` project by opening PR [#221](https://github.com/UoB-HPC/BabelStream/pull/221) and merging it, indicating active involvement in enhancing this project.
-- Raised issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, highlighting a potential problem or feature request that needs attention.
-- Engaged in discussions by commenting on various issues and pull requests, including [#791](https://github.com/exaloop/codon/issues/791#issuecomment-4285589847) and [#789](https://github.com/exaloop/codon/issues/789#issuecomment-419703
+- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) in the `exaloop/codon` repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the context of the Codon language.
+  
+- Opened issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, reporting a failure during NVPTX code generation when a GPU kernel contains a CPU-vectorized LLVM intrinsic, specifically `@llvm.exp.v8f32`.
+
+- Opened pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository to separate CPU and GPU LLVM optimization pipelines before GPU lowering, addressing the problem raised in issue [#792](https://github.com/exaloop/codon/issues/792).
+
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) in the `exaloop/codon` repository, which fixed octal literal grammar parsing, resolving issue [#783](https://github.com/exaloop/codon/issues/783).
+
+- Merged pull request [#771](https://github.com/exaloop/codon/pull/771) in the `exaloop/codon` repository, which fixed NVPTX kernel return type lowering, ensuring that kernel entry functions are emitted with explicit `void` return types.
+
+- Merged pull request [#221](https://github.com/UoB-HPC/BabelStream/pull/221) in the `UoB-HPC/BabelStream` repository, restoring the `
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
