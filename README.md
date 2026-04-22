@@ -17,7 +17,16 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_details-->
-Updating...
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
+- Pushed updates to `BI71317/BI71317`.
 <!--END_SECTION:activity_details-->
 
 ## Recent Activity
