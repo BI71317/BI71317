@@ -1,16 +1,17 @@
-## Hi there 👋
+## Hi👋 There 
 
-<!--
-**BI71317/BI71317** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Sung-Woo Choi From South Korea, Majoring Computer Science from [Unist](https://www.unist.ac.kr/unist/index.do) (Ulsan National Institute of Science and Technology).
 
-Here are some ideas to get you started:
+I'm interested in compilers, systems, security, and GPUs.  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+My work mainly focuses on LLVM-based analysis, low-level performance and correctness issues.
+
+## Links
+[Tistory](https://swc0317.tistory.com/): https://swc0317.tistory.com/
+
+[Contact me](swc0317@unist.ac.kr) swc0317@unist.ac.kr / swchoi@nshc.net
+
+## Recent Activity
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
