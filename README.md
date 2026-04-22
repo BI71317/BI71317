@@ -1,10 +1,10 @@
 ## Hi👋 There 
 
-I'm Sung-Woo Choi From South Korea, Majoring Computer Science from [Unist](https://www.unist.ac.kr/unist/index.do) (Ulsan National Institute of Science and Technology).
+Hi, I'm Sung-Woo Choi from South Korea.  
+I'm a Computer Science student at UNIST.
 
 I'm interested in compilers, systems, and GPUs.  
-
-My work mainly focuses on LLVM-based analysis, low-level performance and correctness issues.
+My work focuses on LLVM-based analysis, low-level performance, and correctness issues in systems software.
 
 ## Links
 # [Tistory](https://swc0317.tistory.com/): 
