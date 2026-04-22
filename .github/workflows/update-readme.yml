@@ -1,24 +1,37 @@
-name: Update README
+name: Update Weekly Summary
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
-  update-readme:
+  update-summary:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: jamesgeorge007/github-activity-readme@master
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate summary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          MAX_LINES: 8
-          COMMIT_MSG: "Update README with recent GitHub activity"
-          COMMIT_NAME: "github-actions[bot]"
-          COMMIT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python .github/scripts/generate_summary.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Update weekly summary"
+          git push
