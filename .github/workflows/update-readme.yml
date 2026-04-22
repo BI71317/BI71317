@@ -1,4 +1,4 @@
-name: Update Weekly Summary
+name: Update Monthly Summary
 
 on:
   schedule:
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Generate summary
+      - name: Generate monthly summary
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -33,5 +33,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git diff --cached --quiet && exit 0
-          git commit -m "Update weekly summary"
+          git commit -m "Update monthly summary"
           git push
