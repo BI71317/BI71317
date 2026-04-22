@@ -27,6 +27,6 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 8. 💪 Opened PR [#221](https://github.com/UoB-HPC/BabelStream/pull/221) in [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream)
 <!--END_SECTION:activity-->
 
-## Weekly Summary
-<!--START_SECTION:weekly_summary-->
-<!--END_SECTION:weekly_summary-->
+## Recent 30-Day Summary
+<!--START_SECTION:monthly_summary-->
+<!--END_SECTION:monthly_summary-->
