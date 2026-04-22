@@ -29,7 +29,8 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent 30-Day Summary
 <!--START_SECTION:monthly_summary-->
-- Public GitHub activity was recorded over the last 30 days.
-- Most visible activity appeared around `BI71317/BI71317`, `BI71317/codon`, `exaloop/codon`.
-- Main event types included PushEvent (17), CreateEvent (3), PullRequestEvent (3), DeleteEvent (3).
+- Worked on `exaloop/codon` through PR #793 (Fix: Separate CPU and GPU LLVM optimization pipelines before GPU lowering).
+- Worked on `exaloop/codon` through PR #784 (fixed octal literal grammar parsing).
+- Discussed or tracked issues in `exaloop/codon` such as #791 (Accessing Attributes of Subclasses).
+- Discussed or tracked issues in `exaloop/codon` such as #792 (GPU lowering inherits CPU-vectorized `llvm.exp.v8f32` and fails during NVPTX Codegen).
 <!--END_SECTION:monthly_summary-->
