@@ -1,4 +1,4 @@
-name: Update Monthly Summary
+name: Update Summary of Recent Activity
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-summary:
+  update-activity-details:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,12 +25,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install azure-ai-inference
 
-      - name: Generate monthly summary
+      - name: Generate summary of recent activity
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
         run: |
-          python .github/scripts/generate_summary.py
+          python .github/scripts/generate_activity_details.py
 
       - name: Commit changes
         run: |
@@ -38,5 +38,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git diff --cached --quiet && exit 0
-          git commit -m "Update monthly summary"
+          git commit -m "Update summary of recent activity"
           git push
