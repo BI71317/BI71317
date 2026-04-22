@@ -29,4 +29,7 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent 30-Day Summary
 <!--START_SECTION:monthly_summary-->
+- Public GitHub activity was recorded over the last 30 days.
+- Most visible activity appeared around `BI71317/BI71317`, `BI71317/codon`, `exaloop/codon`.
+- Main event types included PushEvent (17), CreateEvent (3), PullRequestEvent (3), DeleteEvent (3).
 <!--END_SECTION:monthly_summary-->
