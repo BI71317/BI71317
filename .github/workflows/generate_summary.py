@@ -1,18 +1,25 @@
-import json
 import os
 import re
+import json
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-OWNER = os.environ["GITHUB_REPOSITORY_OWNER"]
-GH_TOKEN = os.environ["GITHUB_TOKEN"]
-OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+from azure.ai.inference import ChatCompletionsClient
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.inference.models import SystemMessage, UserMessage
 
+
+OWNER = os.environ["GITHUB_REPOSITORY_OWNER"]
+GH_TOKEN = os.environ["GITHUB_TOKEN"]  # for GitHub API
+GITHUB_MODELS_TOKEN = os.environ["GITHUB_MODELS_TOKEN"]  # PAT for GitHub Models
 README_PATH = "README.md"
+
 START = "<!--START_SECTION:monthly_summary-->"
 END = "<!--END_SECTION:monthly_summary-->"
-
 LOOKBACK_DAYS = 30
+
+MODELS_ENDPOINT = "https://models.inference.ai.azure.com"
+MODEL_NAME = "gpt-4o-mini"
 
 
 def gh_get(url: str):
@@ -26,51 +33,6 @@ def gh_get(url: str):
     )
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode("utf-8"))
-
-
-def openai_summary(prompt: str) -> str:
-    body = {
-        "model": "gpt-4.1-mini",
-        "input": [
-            {
-                "role": "system",
-                "content": (
-                    "You summarize a developer's recent GitHub activity for a profile README. "
-                    "Be concrete, concise, and professional. "
-                    "Output markdown only. "
-                    "Use 3-5 bullet points. "
-                    "Focus on engineering themes, repositories, and kinds of contributions. "
-                    "Do not invent work that is not supported by the activity data."
-                ),
-            },
-            {
-                "role": "user",
-                "content": prompt,
-            },
-        ],
-        "max_output_tokens": 260,
-    }
-
-    req = urllib.request.Request(
-        "https://api.openai.com/v1/responses",
-        data=json.dumps(body).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {OPENAI_API_KEY}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-
-    with urllib.request.urlopen(req) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
-
-    parts = []
-    for item in data.get("output", []):
-        for content in item.get("content", []):
-            if content.get("type") == "output_text":
-                parts.append(content.get("text", ""))
-
-    return "\n".join(parts).strip()
 
 
 def parse_github_time(ts: str) -> datetime:
@@ -116,9 +78,8 @@ def format_events(events):
 
         elif et == "PullRequestReviewEvent":
             action = payload.get("action", "")
-            review = payload.get("review", {})
             pr = payload.get("pull_request", {})
-            detail = f"{action} PR review on: {pr.get('title', '') or review.get('body', '')[:80]}"
+            detail = f"{action} PR review on: {pr.get('title', '')}"
 
         elif et == "CreateEvent":
             ref_type = payload.get("ref_type", "")
@@ -138,47 +99,99 @@ def format_events(events):
     return "\n".join(lines)
 
 
-def replace_section(readme: str, new_text: str) -> str:
-    pattern = re.compile(
-        rf"{re.escape(START)}.*?{re.escape(END)}",
-        re.DOTALL,
-    )
-    replacement = f"{START}\n{new_text}\n{END}"
-
-    if not pattern.search(readme):
-        raise RuntimeError("monthly_summary markers not found in README.md")
-
-    return pattern.sub(replacement, readme)
-
-
 def build_fallback(events):
     if not events:
         return "- No significant public GitHub activity was detected in the last 30 days."
 
-    repos = []
+    repo_count = {}
     event_types = {}
 
     for e in events:
         repo = e.get("repo", {}).get("name", "")
         et = e.get("type", "")
         if repo:
-            repos.append(repo)
+            repo_count[repo] = repo_count.get(repo, 0) + 1
         event_types[et] = event_types.get(et, 0) + 1
 
-    top_repos = []
-    repo_count = {}
-    for r in repos:
-        repo_count[r] = repo_count.get(r, 0) + 1
     top_repos = sorted(repo_count.items(), key=lambda x: x[1], reverse=True)[:3]
+    top_types = sorted(event_types.items(), key=lambda x: x[1], reverse=True)[:4]
 
     lines = ["- Public GitHub activity was recorded over the last 30 days."]
     if top_repos:
-        repo_text = ", ".join([f"`{name}`" for name, _ in top_repos])
+        repo_text = ", ".join(f"`{name}`" for name, _ in top_repos)
         lines.append(f"- Most visible activity appeared around {repo_text}.")
-    if event_types:
-        type_text = ", ".join([f"{k} ({v})" for k, v in sorted(event_types.items(), key=lambda x: x[1], reverse=True)[:4]])
+    if top_types:
+        type_text = ", ".join(f"{name} ({count})" for name, count in top_types)
         lines.append(f"- Main event types included {type_text}.")
     return "\n".join(lines)
+
+
+def summarize_with_github_models(activity_text: str) -> str:
+    client = ChatCompletionsClient(
+        endpoint=MODELS_ENDPOINT,
+        credential=AzureKeyCredential(GITHUB_MODELS_TOKEN),
+        model=MODEL_NAME,
+    )
+
+    response = client.complete(
+        messages=[
+            SystemMessage(
+                content=(
+                    "You summarize a developer's recent GitHub activity for a profile README. "
+                    "Be concrete, concise, and professional. "
+                    "Output markdown only. "
+                    "Use 3-5 bullet points. "
+                    "Focus on engineering themes, repositories, and kinds of contributions. "
+                    "Do not invent work that is not supported by the activity data."
+                )
+            ),
+            UserMessage(
+                content=(
+                    "Summarize this developer's public GitHub activity from the last 30 days for a profile README.\n\n"
+                    "Requirements:\n"
+                    "- 3 to 5 bullets\n"
+                    "- Focus on engineering themes, repositories, and types of contribution\n"
+                    "- Prefer PRs, issues, fixes, reviews, debugging, implementation, and discussion over raw counts\n"
+                    "- Mention repositories when possible\n"
+                    "- Be concrete and conservative\n"
+                    "- Avoid hype or generic praise\n"
+                    "- Output markdown only\n\n"
+                    f"Activity:\n{activity_text}"
+                )
+            ),
+        ],
+        temperature=0.2,
+        max_tokens=260,
+    )
+
+    if not response.choices:
+        return ""
+
+    msg = response.choices[0].message
+    content = getattr(msg, "content", None)
+
+    if isinstance(content, str):
+        return content.strip()
+
+    if isinstance(content, list):
+        parts = []
+        for item in content:
+            text = getattr(item, "text", None)
+            if text:
+                parts.append(text)
+        return "\n".join(parts).strip()
+
+    return ""
+
+
+def replace_section(readme: str, new_text: str) -> str:
+    pattern = re.compile(rf"{re.escape(START)}.*?{re.escape(END)}", re.DOTALL)
+    replacement = f"{START}\n{new_text}\n{END}"
+
+    if not pattern.search(readme):
+        raise RuntimeError("monthly_summary markers not found in README.md")
+
+    return pattern.sub(replacement, readme)
 
 
 def main():
@@ -189,25 +202,8 @@ def main():
         summary = "- No significant public GitHub activity was detected in the last 30 days."
     else:
         activity_text = format_events(recent_events)
-
-        prompt = f"""
-Summarize this developer's public GitHub activity from the last 30 days for a profile README.
-
-Requirements:
-- 3 to 5 bullets
-- Focus on engineering themes, repositories, and types of contribution
-- Prefer PRs, issues, fixes, reviews, debugging, implementation, and discussion over raw counts
-- Mention repositories when possible
-- Be concrete and conservative
-- Avoid hype or generic praise
-- Output markdown only
-
-Activity:
-{activity_text}
-""".strip()
-
         try:
-            summary = openai_summary(prompt)
+            summary = summarize_with_github_models(activity_text)
             if not summary:
                 summary = build_fallback(recent_events)
         except Exception:
