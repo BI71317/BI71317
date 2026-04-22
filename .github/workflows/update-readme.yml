@@ -30,7 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
         run: |
-          python .github/scripts/generate_activity_details.py
+          python .github/scripts/generate_summary.py
 
       - name: Commit changes
         run: |
