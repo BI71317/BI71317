@@ -17,9 +17,9 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) in the `exaloop/codon` repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the context of the Codon language.
+- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) in the `exaloop/codon` repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the ahead-of-time language Codon.
   
-- Opened issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, reporting a failure during NVPTX code generation when a GPU kernel contains a CPU-vectorized LLVM intrinsic, specifically `@llvm.exp.v8f32`.
+- Opened issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, describing a failure during NVPTX code generation when a GPU kernel contains a CPU-vectorized LLVM intrinsic, specifically `@llvm.exp.v8f32`.
 
 - Opened pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository to separate CPU and GPU LLVM optimization pipelines before GPU lowering, addressing the problem raised in issue [#792](https://github.com/exaloop/codon/issues/792).
 
