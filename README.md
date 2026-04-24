@@ -17,17 +17,17 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) in the `exaloop/codon` repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the ahead-of-time language Codon.
+- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) in the `exaloop/codon` repository, discussing accessing attributes of subclasses in the context of Codon's strict type model, emphasizing the need for correct type definitions.
   
-- Opened issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, describing a failure during NVPTX code generation when a GPU kernel contains a CPU-vectorized LLVM intrinsic, specifically `@llvm.exp.v8f32`.
+- Opened issue [#792](https://github.com/exaloop/codon/issues/792) in the `exaloop/codon` repository, highlighting a failure during NVPTX code generation due to a GPU kernel containing a CPU-vectorized LLVM intrinsic that is not handled correctly.
 
 - Opened pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository to separate CPU and GPU LLVM optimization pipelines before GPU lowering, addressing the problem raised in issue [#792](https://github.com/exaloop/codon/issues/792).
 
-- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) in the `exaloop/codon` repository, which fixed octal literal grammar parsing, resolving issue [#783](https://github.com/exaloop/codon/issues/783).
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) in the `exaloop/codon` repository, which fixed octal literal grammar parsing, addressing issue [#783](https://github.com/exaloop/codon/issues/783).
 
 - Merged pull request [#771](https://github.com/exaloop/codon/pull/771) in the `exaloop/codon` repository, which fixed NVPTX kernel return type lowering, ensuring that kernel entry functions are emitted with explicit `void` return types.
 
-- Merged pull request [#221](https://github.com/UoB-HPC/BabelStream/pull/221) in the `UoB-HPC/BabelStream` repository, restoring the `
+- Merged pull request [#221](https://github.com/UoB-HPC/BabelStream/pull/221) in the `UoB-HPC/BabelStream` repository, restoring the `Stream::init
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
