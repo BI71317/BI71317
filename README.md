@@ -17,17 +17,17 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository titled "Fix: Separate CPU and GPU LLVM optimization pipelines before GPU lowering" to address issue #792. This PR aims to restructure the optimization pipeline by separating CPU and GPU modules before their respective optimization flows, introducing a 2-pass optimization for both modules.
+- Opened a pull request in the `exaloop/codon` repository titled [Fix: Separate CPU and GPU LLVM optimization pipelines before GPU lowering](https://github.com/exaloop/codon/pull/793) to address issue #792. This PR separates CPU and GPU optimization pipelines to improve performance and introduces a 2-pass optimization for the GPU module.
+  
+- Participated in the review process for the same pull request, providing feedback on code formatting and commenting practices, specifically suggesting the use of `clang-format` for `gpu.cpp` and updating comments related to GPU transformation functions.
 
-- Participated in discussions on the open issue [#791](https://github.com/exaloop/codon/issues/791) regarding accessing attributes of subclasses. Provided insights on the strict type model required in Codon for accessing fields directly, emphasizing the need for the `Statement` type to match the class type.
+- Engaged in discussions on issue #793 regarding the relationship between the current pull request and another issue (#781), clarifying that the changes made in the PR also address potential problems related to global variable initialization.
 
-- Commented on issue [#789](https://github.com/exaloop/codon/issues/789) about creating lists with multiple types. Clarified that Codon supports inherited lists and provided guidance on how to structure the code to avoid type errors.
+- Responded to an open issue (#791) about accessing attributes of subclasses, explaining the strict type model required in Codon and providing guidance on how to properly access fields in inherited classes.
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/784) repository that fixed octal literal grammar parsing, addressing issue #783. This update added support for octal literals in the grammar, ensuring consistency with binary and hexadecimal expressions.
+- Merged a pull request in the `exaloop/codon` repository that fixed octal literal grammar parsing, resolving issue #783. The changes included updates to grammar definitions and ensured that octal literals were correctly recognized.
 
-- Merged a pull request in the [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream/pull/221) repository to fix a build regression by restoring the `Stream::init_arrays` declaration, resolving issue #220. This change allowed successful compilation and execution of the BabelStream project.
-
-- Merged another pull request in the [exaloop/codon](https://github.com/exaloop
+- Merged another pull request in the `UoB-HPC/BabelStream` repository that restored the `Stream::init_arrays` declaration, fixing a build regression related to issue #220, which improved the build process and functionality of the project.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
