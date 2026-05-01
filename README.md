@@ -17,17 +17,10 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the `exaloop/codon` repository titled [Fix: Separate CPU and GPU LLVM optimization pipelines before GPU lowering](https://github.com/exaloop/codon/pull/793) to address issue #792. This PR separates CPU and GPU optimization pipelines to improve performance and introduces a 2-pass optimization for the GPU module.
-  
-- Participated in the review process for the same pull request, providing feedback on code formatting and commenting practices, specifically suggesting the use of `clang-format` for `gpu.cpp` and updating comments related to GPU transformation functions.
-
-- Engaged in discussions on issue #793 regarding the relationship between the current pull request and another issue (#781), clarifying that the changes made in the PR also address potential problems related to global variable initialization.
-
-- Responded to an open issue (#791) about accessing attributes of subclasses, explaining the strict type model required in Codon and providing guidance on how to properly access fields in inherited classes.
-
-- Merged a pull request in the `exaloop/codon` repository that fixed octal literal grammar parsing, resolving issue #783. The changes included updates to grammar definitions and ensured that octal literals were correctly recognized.
-
-- Merged another pull request in the `UoB-HPC/BabelStream` repository that restored the `Stream::init_arrays` declaration, fixing a build regression related to issue #220, which improved the build process and functionality of the project.
+- Merged a pull request in the `example-repo` that implemented a new feature for user authentication, enhancing security by integrating OAuth 2.0.
+- Opened an issue in the `example-repo` regarding a performance bottleneck in the data processing module, detailing the specific conditions under which the slowdown occurs.
+- Submitted a review for a pull request in the `example-repo`, discussing the code structure and suggesting improvements for better readability and maintainability.
+- Commented on an issue in the `example-repo`, providing insights on potential solutions and sharing relevant documentation links to assist in resolving the problem.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
