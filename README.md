@@ -17,10 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged a pull request in the `example-repo` that implemented a new feature for user authentication, enhancing security by integrating OAuth 2.0.
-- Opened an issue in the `example-repo` regarding a performance bottleneck in the data processing module, detailing the specific conditions under which the slowdown occurs.
-- Submitted a review for a pull request in the `example-repo`, discussing the code structure and suggesting improvements for better readability and maintainability.
-- Commented on an issue in the `example-repo`, providing insights on potential solutions and sharing relevant documentation links to assist in resolving the problem.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository that separates CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduces a 2-pass optimization for the GPU module, addressing an issue where a CPU-vectorized LLVM intrinsic caused failures during NVPTX code generation (related to issue #792).
+  
+- In the same pull request, review comments were made regarding code formatting and updating comments to reflect changes in function declarations, specifically for `applyGPUTransformations` and the new `prepareGPUmodule()`.
+
+- Merged another pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/784) repository that fixed octal literal grammar parsing, which was missing in the grammar definitions. This change resolved issue #783.
+
+- Merged a pull request in the [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream/pull/221) repository that restored the `Stream::init_arrays` declaration to fix a build regression, addressing issue #220. 
+
+- Participated in discussions on the [exaloop/codon](https://github.com/exaloop/codon/issues/791) repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the context of the Codon language.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
