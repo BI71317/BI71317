@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository that separates CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduces a 2-pass optimization for the GPU module, addressing an issue where a CPU-vectorized LLVM intrinsic caused failures during NVPTX code generation (related to issue #792).
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon) repository that separates CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduces a 2-pass optimization for both CPU and GPU modules, addressing issues related to GPU kernel failures during NVPTX code generation (PR #793).
   
-- In the same pull request, review comments were made regarding code formatting and updating comments to reflect changes in function declarations, specifically for `applyGPUTransformations` and the new `prepareGPUmodule()`.
+- Responded to a comment during the review of the aforementioned pull request, confirming that the test `test/transform/kernels.codon` runs successfully with the new changes, ensuring no build failures or runtime errors (PR #793).
 
-- Merged another pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/784) repository that fixed octal literal grammar parsing, which was missing in the grammar definitions. This change resolved issue #783.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon) repository that fixed octal literal grammar parsing, addressing a previously unhandled case in the grammar (PR #784).
 
-- Merged a pull request in the [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream/pull/221) repository that restored the `Stream::init_arrays` declaration to fix a build regression, addressing issue #220. 
+- Merged a pull request in the [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream) repository that restored the `Stream::init_arrays` declaration, fixing a build regression and ensuring successful compilation and execution of the project (PR #221).
 
-- Participated in discussions on the [exaloop/codon](https://github.com/exaloop/codon/issues/791) repository regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the context of the Codon language.
+- Engaged in discussions on an open issue regarding accessing attributes of subclasses in the [exaloop/codon](https://github.com/exaloop/codon) repository, providing insights on the strict type model required for the language and how to properly access fields (Issue #791).
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
