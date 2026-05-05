@@ -17,13 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository that separates CPU and GPU LLVM optimization pipelines, addressing issue #792. This change introduces a two-pass optimization for both CPU and GPU modules to improve performance and corrects the pipeline structure before GPU lowering. The PR included 79 additions and 36 deletions across 3 files.
-  
-- Responded to a comment on the same pull request, confirming that the test `test/transform/kernels.codon` runs successfully with the new changes, indicating no build failures or runtime errors.
+- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) addressed the separation of CPU and GPU LLVM optimization pipelines, enhancing the optimization flow for both modules and introducing a 2-pass optimization for the GPU. This change was made to resolve issue [#792](https://github.com/exaloop/codon/issues/792).
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/784) repository that fixed octal literal grammar parsing, resolving issue #783. This update added necessary grammar rules for octal literals, ensuring proper recognition in the language.
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) fixed the grammar parsing for octal literals, which was previously missing in the grammar definitions. This update ensures that octal literals are recognized correctly alongside binary and hexadecimal expressions.
 
-- Merged a pull request in the [UoB-HPC/BabelStream](https://github.com/UoB-HPC/BabelStream/pull/221) repository that restored the `Stream::init_arrays` declaration to fix a build regression, addressing issue #220. This change ensured successful compilation and execution of the BabelStream application.
+- A comment was made on issue [#796](https://github.com/exaloop/codon/issues/796) regarding the implementation of native integer parsing, which supports underscores and prefixes similar to Python, and allows parsing of various integer types. The commenter provided a minimal reproducible example (MRE) to illustrate a failure encountered during testing.
+
+- In issue [#791](https://github.com/exaloop/codon/issues/791), a user raised a question about accessing attributes of subclasses in Codon. The response highlighted the strict type model required by Codon, emphasizing the need for proper type definitions to access fields directly.
+
+- Throughout the review process for pull request [#793](https://github.com/exaloop/codon/pull/793), feedback was provided on code formatting and documentation clarity, specifically regarding the `applyGPUTransformations` function and the new `prepareGPUmodule()` function.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
