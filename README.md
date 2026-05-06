@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) addressed the separation of CPU and GPU LLVM optimization pipelines, enhancing the optimization flow for both modules and introducing a 2-pass optimization for the GPU. This change was made to resolve issue [#792](https://github.com/exaloop/codon/issues/792).
+- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) addressed the separation of CPU and GPU LLVM optimization pipelines, enhancing the structure to apply optimizations independently for each module. This change introduces a 2-pass optimization for the GPU module, improving performance and resolving related issues.
+  
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) fixed the grammar parsing for octal literals, which was previously missing in the grammar definitions. This update ensures that octal literals are correctly recognized alongside binary and hexadecimal expressions.
 
-- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) fixed the grammar parsing for octal literals, which was previously missing in the grammar definitions. This update ensures that octal literals are recognized correctly alongside binary and hexadecimal expressions.
+- Closed issue [#792](https://github.com/exaloop/codon/issues/792) reported a failure during NVPTX code generation for GPU kernels using CPU-vectorized LLVM intrinsics. The issue was linked to improper handling of these intrinsics before GPU lowering.
 
-- A comment was made on issue [#796](https://github.com/exaloop/codon/issues/796) regarding the implementation of native integer parsing, which supports underscores and prefixes similar to Python, and allows parsing of various integer types. The commenter provided a minimal reproducible example (MRE) to illustrate a failure encountered during testing.
+- Closed issue [#796](https://github.com/exaloop/codon/pull/796) discussed the implementation of native integer parsing, which now supports underscores and prefixes similar to Python, as well as parsing arbitrary integer types. The issue was resolved with extensive testing added to ensure functionality.
 
-- In issue [#791](https://github.com/exaloop/codon/issues/791), a user raised a question about accessing attributes of subclasses in Codon. The response highlighted the strict type model required by Codon, emphasizing the need for proper type definitions to access fields directly.
-
-- Throughout the review process for pull request [#793](https://github.com/exaloop/codon/pull/793), feedback was provided on code formatting and documentation clarity, specifically regarding the `applyGPUTransformations` function and the new `prepareGPUmodule()` function.
+- In the ongoing discussion for issue [#791](https://github.com/exaloop/codon/issues/791), a user sought assistance with accessing attributes of subclasses in Codon. The response highlighted the strict type model required by Codon, emphasizing the need for proper type definitions to access fields directly.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
