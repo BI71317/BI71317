@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository, which separated CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduced a two-pass optimization for both CPU and GPU modules, addressing issue [#792](https://github.com/exaloop/codon/issues/792).
+- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) that separates CPU and GPU LLVM optimization pipelines before GPU lowering, addressing issue [#792](https://github.com/exaloop/codon/issues/792). This change introduces a 2-pass optimization for both CPU and GPU modules to enhance performance.
+  
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) that fixed octal literal grammar parsing, resolving issue [#783](https://github.com/exaloop/codon/issues/783). The update added support for octal literals in the grammar, which was previously missing.
 
-- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) that fixed octal literal grammar parsing in the `exaloop/codon` repository. This update added support for octal literals in the grammar, which was previously missing.
+- Commented on issue [#796](https://github.com/exaloop/codon/issues/796) regarding the implementation of native integer parsing, providing a minimal reproducible example (MRE) and identifying a root cause related to the `_parse_int` function.
 
-- Closed issue [#796](https://github.com/exaloop/codon/pull/796) regarding the implementation of native integer parsing, which now supports underscores and prefixes similar to Python and accommodates arbitrary integer types (e.g., `u32`, `i128`). The issue was resolved with extensive testing.
+- Engaged in discussions on issue [#791](https://github.com/exaloop/codon/issues/791) about accessing attributes of subclasses, emphasizing the need for a strict type model in the Codon language due to its ahead-of-time compilation nature.
 
-- Engaged in discussions on issue [#791](https://github.com/exaloop/codon/issues/791) about accessing attributes of subclasses, emphasizing the need for strict type modeling in the `codon` language due to its ahead-of-time compilation nature.
-
-- Provided feedback on pull request [#793](https://github.com/exaloop/codon/pull/793) regarding code formatting and documentation updates for GPU transformation functions, ensuring clarity and consistency in the codebase.
+- Provided feedback during the review of pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting formatting changes and updates to comments in the code to reflect new function definitions.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
