@@ -17,11 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) to separate CPU and GPU LLVM optimization pipelines, addressing issue [#792](https://github.com/exaloop/codon/issues/792). This change enhances the optimization flow by introducing a two-pass optimization for both CPU and GPU modules.
-- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) that fixed octal literal grammar parsing, which was previously missing in the grammar for octal expressions. This update ensures proper recognition of octal literals.
-- Closed issue [#796](https://github.com/exaloop/codon/issues/796) regarding the implementation of native integer parsing, which now supports underscores and prefixes similar to Python, as well as arbitrary integer types. The issue was resolved with extensive testing.
-- Engaged in discussions on issue [#791](https://github.com/exaloop/codon/issues/791) about accessing attributes of subclasses in Codon, emphasizing the need for a strict type model due to the ahead-of-time compilation nature of the language.
-- Provided feedback on pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting formatting changes and updates to comments for clarity in the GPU optimization code.
+- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository, which separated CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduced a 2-pass optimization for both CPU and GPU modules, addressing issue [#792](https://github.com/exaloop/codon/issues/792).
+  
+- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) in the `exaloop/codon` repository, which fixed octal literal grammar parsing that was previously missing. This update ensures that octal literals are correctly recognized in the grammar.
+
+- Commented on issue [#796](https://github.com/exaloop/codon/pull/796) regarding the implementation of native integer parsing, providing a minimal reproducible example (MRE) and identifying a root cause for a failure in the `updated-int-parsing` branch. The issue was subsequently resolved by the author.
+
+- Engaged in discussions on issue [#791](https://github.com/exaloop/codon/issues/791) about accessing attributes of subclasses, emphasizing the strict type model required by the Codon language for ahead-of-time compilation.
+
+- Participated in the review process for pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting improvements such as formatting changes with `clang-format` and updating comments for clarity in the codebase.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
