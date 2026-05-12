@@ -17,15 +17,13 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) addressed the issue of separating CPU and GPU LLVM optimization pipelines before GPU lowering. This change enhances the pipeline structure and introduces a two-pass optimization for both CPU and GPU modules, improving performance and code generation reliability.
+- Opened a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/804) repository to implement the `f16` extension in the GPU module, addressing issue #803. The implementation includes a minimal reproducible example and updates to the test suite for kernel scalar type lowering.
+  
+- Opened an issue in the [exaloop/codon](https://github.com/exaloop/codon/issues/803) repository regarding the lack of `__to_gpu__` support for the `float16` type in kernel argument passing, which prevents its usage in GPU kernels.
 
-- In pull request [#796](https://github.com/exaloop/codon/pull/796), the implementation of native integer parsing was completed, supporting underscores and prefixes similar to Python, and allowing for parsing of arbitrary integer types. This pull request was closed after thorough testing and issue resolution.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository that separates CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduces a two-pass optimization structure for both CPU and GPU modules, improving the optimization process.
 
-- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the Codon language to facilitate direct field access.
-
-- Participated in discussions on issue [#792](https://github.com/exaloop/codon/issues/792), which reported a failure during NVPTX code generation due to the introduction of CPU-vectorized LLVM intrinsics in GPU kernels. This issue was closed after the related pull request was merged.
-
-- Provided feedback on pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting formatting changes and updates to comments to reflect the new GPU module structure, ensuring clarity and maintainability in the codebase.
+- Participated in discussions on various issues, including providing insights on implementing native integer parsing and addressing attribute access in subclasses, emphasizing the strict type model required by the Codon language.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
