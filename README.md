@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) in the `exaloop/codon` repository, which separated CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduced a 2-pass optimization for both CPU and GPU modules, addressing issue [#792](https://github.com/exaloop/codon/issues/792).
-  
-- Merged pull request [#784](https://github.com/exaloop/codon/pull/784) in the `exaloop/codon` repository, which fixed octal literal grammar parsing that was previously missing. This update ensures that octal literals are correctly recognized in the grammar.
+- Merged pull request [#793](https://github.com/exaloop/codon/pull/793) addressed the issue of separating CPU and GPU LLVM optimization pipelines before GPU lowering. This change enhances the pipeline structure and introduces a two-pass optimization for both CPU and GPU modules, improving performance and code generation reliability.
 
-- Commented on issue [#796](https://github.com/exaloop/codon/pull/796) regarding the implementation of native integer parsing, providing a minimal reproducible example (MRE) and identifying a root cause for a failure in the `updated-int-parsing` branch. The issue was subsequently resolved by the author.
+- In pull request [#796](https://github.com/exaloop/codon/pull/796), the implementation of native integer parsing was completed, supporting underscores and prefixes similar to Python, and allowing for parsing of arbitrary integer types. This pull request was closed after thorough testing and issue resolution.
 
-- Engaged in discussions on issue [#791](https://github.com/exaloop/codon/issues/791) about accessing attributes of subclasses, emphasizing the strict type model required by the Codon language for ahead-of-time compilation.
+- Commented on issue [#791](https://github.com/exaloop/codon/issues/791) regarding accessing attributes of subclasses, emphasizing the need for a strict type model in the Codon language to facilitate direct field access.
 
-- Participated in the review process for pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting improvements such as formatting changes with `clang-format` and updating comments for clarity in the codebase.
+- Participated in discussions on issue [#792](https://github.com/exaloop/codon/issues/792), which reported a failure during NVPTX code generation due to the introduction of CPU-vectorized LLVM intrinsics in GPU kernels. This issue was closed after the related pull request was merged.
+
+- Provided feedback on pull request [#793](https://github.com/exaloop/codon/pull/793), suggesting formatting changes and updates to comments to reflect the new GPU module structure, ensuring clarity and maintainability in the codebase.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
