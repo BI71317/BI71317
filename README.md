@@ -17,13 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/804) repository to implement the `f16` extension in the GPU module, addressing issue #803. The implementation includes a minimal reproducible example and updates to the test suite for kernel scalar type lowering.
+- Opened a pull request in the `exaloop/codon` repository to implement the f16 extension in the GPU module, addressing the lack of `f16` support for kernel argument passing (PR #804). The implementation includes a minimal reproducible example (MRE) and updates to the test suite to cover kernel scalar type lowering.
   
-- Opened an issue in the [exaloop/codon](https://github.com/exaloop/codon/issues/803) repository regarding the lack of `__to_gpu__` support for the `float16` type in kernel argument passing, which prevents its usage in GPU kernels.
+- Created an issue in the `exaloop/codon` repository regarding a segmentation fault when converting ordered dictionaries containing lists of floats on the GPU (Issue #811). The issue highlights that while unordered dictionaries work, ordered ones do not, and provides an MRE for further investigation.
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/793) repository that separates CPU and GPU LLVM optimization pipelines before GPU lowering. This change introduces a two-pass optimization structure for both CPU and GPU modules, improving the optimization process.
+- Responded to comments on PR #804, discussing the potential addition of `bfloat16` support and clarifying the handling of `complex` types in the Codon framework, indicating that they may already be supported through tuple handling.
 
-- Participated in discussions on various issues, including providing insights on implementing native integer parsing and addressing attribute access in subclasses, emphasizing the strict type model required by the Codon language.
+- Opened a pull request to add a runtime dependency on NumPy in the Codon JIT setup, addressing an issue where the absence of NumPy caused import failures (PR #810). This change aims to ensure that users can install Codon without encountering missing dependency errors.
+
+- Participated in discussions related to the implementation of native integer parsing in the Codon framework, providing feedback on test cases and root cause analysis for failures encountered during testing (PR #796).
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
