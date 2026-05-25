@@ -17,15 +17,11 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the `exaloop/codon` repository to implement the f16 extension in the GPU module, addressing the lack of `f16` support for kernel argument passing (PR #804). The implementation includes a minimal reproducible example (MRE) and updates to the test suite to cover kernel scalar type lowering.
-  
-- Created an issue in the `exaloop/codon` repository regarding a segmentation fault when converting ordered dictionaries containing lists of floats on the GPU (Issue #811). The issue highlights that while unordered dictionaries work, ordered ones do not, and provides an MRE for further investigation.
-
-- Responded to comments on PR #804, discussing the potential addition of `bfloat16` support and clarifying the handling of `complex` types in the Codon framework, indicating that they may already be supported through tuple handling.
-
-- Opened a pull request to add a runtime dependency on NumPy in the Codon JIT setup, addressing an issue where the absence of NumPy caused import failures (PR #810). This change aims to ensure that users can install Codon without encountering missing dependency errors.
-
-- Participated in discussions related to the implementation of native integer parsing in the Codon framework, providing feedback on test cases and root cause analysis for failures encountered during testing (PR #796).
+- Opened issue #818 in the `exaloop/codon` repository regarding a complex `sin` operation resulting in `nan`, which appears to be related to an uninitialized global variable issue (#781).
+- Created pull request #819 titled "[GPU] fix limited GV un init problem" to enhance the constant propagation pass, allowing global constants initialized through scalar cast/constructor patterns to be folded. This PR is currently open and has not yet been merged.
+- Merged pull request #804, which implemented the `f16` extension in the GPU module, fixing issue #803. The implementation included a minimal reproducible example and added tests for scalar type lowering in the kernel.
+- Engaged in discussions on various issues and pull requests, including clarifying the implications of changes made in pull request #802 related to JIT symbol management and addressing concerns about symbol visibility improvements.
+- Opened issue #811 to report a segmentation fault when converting ordered dictionaries containing lists from GPU to CPU, highlighting specific cases that fail during the conversion process.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
