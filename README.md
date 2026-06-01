@@ -17,11 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened issue #818 in the `exaloop/codon` repository regarding a complex `sin` operation resulting in `nan`, which appears to be related to an uninitialized global variable issue (#781).
-- Created pull request #819 titled "[GPU] fix limited GV un init problem" to enhance the constant propagation pass, allowing global constants initialized through scalar cast/constructor patterns to be folded. This PR is currently open and has not yet been merged.
-- Merged pull request #804, which implemented the `f16` extension in the GPU module, fixing issue #803. The implementation included a minimal reproducible example and added tests for scalar type lowering in the kernel.
-- Engaged in discussions on various issues and pull requests, including clarifying the implications of changes made in pull request #802 related to JIT symbol management and addressing concerns about symbol visibility improvements.
-- Opened issue #811 to report a segmentation fault when converting ordered dictionaries containing lists from GPU to CPU, highlighting specific cases that fail during the conversion process.
+- Merged pull request [#821](https://github.com/exaloop/codon/pull/821) in the `exaloop/codon` repository addressed an invalid behavior when using an ordered `dict` in GPU round-trip usage, which caused segmentation faults. The fix involved ensuring proper handling of `list entries` during the copy process between host and device.
+
+- Opened pull request [#819](https://github.com/exaloop/codon/pull/819) aims to fix a limited global variable initialization problem by updating the `constant propagation pass` to accept global constants initialized through scalar cast/constructor patterns. This change allows for better handling of global constants in the Codon compiler.
+
+- Reported issue [#818](https://github.com/exaloop/codon/issues/818) highlights a problem where the complex `sin` operation results in `nan` values, which appears to be related to uninitialized global variables. A minimal reproducible example was provided to illustrate the issue.
+
+- Merged pull request [#804](https://github.com/exaloop/codon/pull/804) implemented the `f16` extension in the GPU module, fixing issue [#803](https://github.com/exaloop/codon/issues/803). The implementation included a test suite for kernel scalar type lowering, ensuring that the new functionality works as intended.
+
+- Engaged in discussions on various issues and pull requests, including clarifying the implications of changes in the JIT runtime symbol handling in pull request [#812](https://github.com/exaloop/codon/pull/812) and providing feedback on the necessity of additional test cases for kernel global variable examples in pull request [#819](https://github
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
