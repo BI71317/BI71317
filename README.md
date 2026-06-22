@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#821](https://github.com/exaloop/codon/pull/821) in the `exaloop/codon` repository addressed an invalid behavior in GPU round-trip usage with ordered dictionaries. The fix prevents segmentation faults when copying an ordered dictionary containing list entries from host to device and back, ensuring proper functionality.
+- Opened a pull request in the `exaloop/codon` repository (#826) for implementing a Python GPU DSL decorator. This implementation separates the GPU path from the existing CPU target JIT decorator structure, adding a `codon.gpu` decorator and GPU-specific source rewriting. The pull request is currently open and has not been merged yet. [View PR](https://github.com/exaloop/codon/pull/826).
 
-- Opened pull request [#819](https://github.com/exaloop/codon/pull/819) aims to fix a limited global variable initialization problem in the constant propagation pass. It updates the pass to accept global constants initialized through scalar cast patterns, expanding its capabilities beyond just literal constants.
+- Merged a pull request in the `exaloop/codon` repository (#821) that fixed an invalid behavior when using an ordered dictionary in GPU round-trip usage. This fix addressed a segmentation fault that occurred when copying an ordered dictionary with list entries from host to device and back. [View PR](https://github.com/exaloop/codon/pull/821).
 
-- Reported issue [#818](https://github.com/exaloop/codon/issues/818) highlights a problem where the complex `sin` operation results in `nan` values, indicating a potential uninitialized global variable issue. A minimal reproducible example was provided to illustrate the problem.
+- Opened a pull request (#819) to address the limited global variable initialization problem in the `exaloop/codon` repository. This update to the constant propagation pass allows global constants initialized through scalar cast/constructor patterns to be folded, expanding the conditions under which global constants are recognized. The pull request is currently open and has not been merged yet. [View PR](https://github.com/exaloop/codon/pull/819).
 
-- Merged pull request [#804](https://github.com/exaloop/codon/pull/804) implemented the `f16` extension in the GPU module, fixing issue [#803](https://github.com/exaloop/codon/issues/803). The implementation included a test suite addition for kernel scalar type lowering, confirming successful execution of the new functionality.
+- Raised an issue (#818) regarding a complex `sin` operation resulting in `nan` values when executed on the GPU. This issue is believed to be related to the uninitialized global variable problem previously identified. [View Issue](https://github.com/exaloop/codon/issues/818).
 
-- Engaged in discussions on various issues and pull requests, including clarifications on JIT runtime symbol isolation in pull request [#812](https://github.com/exaloop/codon/pull/812) and the implications of removing global dynamic library loading in pull request [#802](https://github.com/exaloop/codon/pull/802).
+- Commented on issue #826, confirming that test cases in `codon/test/transform/kernels.codon` pass when all kernels of Codon native are rewritten in
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
