@@ -30,9 +30,9 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent Activity
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#826](https://github.com/exaloop/codon/pull/826#issuecomment-4749537155) in [exaloop/codon](https://github.com/exaloop/codon)
-2. 💪 Opened PR [#826](https://github.com/exaloop/codon/pull/826) in [exaloop/codon](https://github.com/exaloop/codon)
-3. 🎉 Merged PR [#821](https://github.com/exaloop/codon/pull/821) in [exaloop/codon](https://github.com/exaloop/codon)
+1. 💪 Opened PR [#828](https://github.com/exaloop/codon/pull/828) in [exaloop/codon](https://github.com/exaloop/codon)
+2. 🗣 Commented on [#826](https://github.com/exaloop/codon/pull/826#issuecomment-4749537155) in [exaloop/codon](https://github.com/exaloop/codon)
+3. 💪 Opened PR [#826](https://github.com/exaloop/codon/pull/826) in [exaloop/codon](https://github.com/exaloop/codon)
 4. 💪 Opened PR [#821](https://github.com/exaloop/codon/pull/821) in [exaloop/codon](https://github.com/exaloop/codon)
 5. 🗣 Commented on [#819](https://github.com/exaloop/codon/pull/819#issuecomment-4528429692) in [exaloop/codon](https://github.com/exaloop/codon)
 6. 💪 Opened PR [#819](https://github.com/exaloop/codon/pull/819) in [exaloop/codon](https://github.com/exaloop/codon)
