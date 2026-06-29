@@ -17,15 +17,13 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the `exaloop/codon` repository (#826) for implementing a Python GPU DSL decorator. This implementation separates the GPU path from the existing CPU target JIT decorator structure, adding a `codon.gpu` decorator and GPU-specific source rewriting. The pull request is currently open and has not been merged yet. [View PR](https://github.com/exaloop/codon/pull/826).
+- Merged pull request [#828](https://github.com/exaloop/codon/pull/828) in the `exaloop/codon` repository addressed the issue of handling cases where no concrete GPU kernels are realized. The patch ensures that no GPU module is created, no PTX blob is emitted, and the `__codon_ptx__()` function is patched to null, effectively streamlining the GPU preparation process.
 
-- Merged a pull request in the `exaloop/codon` repository (#821) that fixed an invalid behavior when using an ordered dictionary in GPU round-trip usage. This fix addressed a segmentation fault that occurred when copying an ordered dictionary with list entries from host to device and back. [View PR](https://github.com/exaloop/codon/pull/821).
+- Opened pull request [#826](https://github.com/exaloop/codon/pull/826) introduces a Python GPU DSL decorator implementation. This implementation adds a `codon.gpu` decorator and includes GPU-specific source rewriting, allowing Python functions to be transformed into Codon GPU source code. The pull request is currently open and has not yet been merged.
 
-- Opened a pull request (#819) to address the limited global variable initialization problem in the `exaloop/codon` repository. This update to the constant propagation pass allows global constants initialized through scalar cast/constructor patterns to be folded, expanding the conditions under which global constants are recognized. The pull request is currently open and has not been merged yet. [View PR](https://github.com/exaloop/codon/pull/819).
+- A comment on the open issue related to pull request [#826](https://github.com/exaloop/codon/pull/826) noted that test cases in `codon/test/transform/kernels.codon` pass successfully when all kernels are rewritten in the Python DSL, indicating progress in the implementation.
 
-- Raised an issue (#818) regarding a complex `sin` operation resulting in `nan` values when executed on the GPU. This issue is believed to be related to the uninitialized global variable problem previously identified. [View Issue](https://github.com/exaloop/codon/issues/818).
-
-- Commented on issue #826, confirming that test cases in `codon/test/transform/kernels.codon` pass when all kernels of Codon native are rewritten in
+- The pull request [#826](https://github.com/exaloop/codon/pull/826) includes significant changes with 318 additions and 2 deletions across 7 files, reflecting the complexity of the new GPU DSL implementation.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
