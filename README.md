@@ -17,13 +17,17 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#828](https://github.com/exaloop/codon/pull/828) in the `exaloop/codon` repository addressed the issue of handling cases where no concrete GPU kernels are realized. The patch ensures that no GPU module is created, no PTX blob is emitted, and the `__codon_ptx__()` function is patched to null, effectively streamlining the GPU preparation process.
+- Merged pull request [#835](https://github.com/exaloop/codon/pull/835) in the `exaloop/codon` repository added bfloat16 compiler runtime conversion helper symbols to `CMakeLists.txt`, addressing issue #834. This change ensures that the bf16 conversion helpers are default-visible before linking into `libcodonrt.so`.
 
-- Opened pull request [#826](https://github.com/exaloop/codon/pull/826) introduces a Python GPU DSL decorator implementation. This implementation adds a `codon.gpu` decorator and includes GPU-specific source rewriting, allowing Python functions to be transformed into Codon GPU source code. The pull request is currently open and has not yet been merged.
+- Merged pull request [#830](https://github.com/exaloop/codon/pull/830) updated the NVPTX optimization pipeline to apply GPU optimization passes (`gpuopt1` and `gpuopt2`) to the prepared GPU module instead of the host module, resolving issue #829.
 
-- A comment on the open issue related to pull request [#826](https://github.com/exaloop/codon/pull/826) noted that test cases in `codon/test/transform/kernels.codon` pass successfully when all kernels are rewritten in the Python DSL, indicating progress in the implementation.
+- Merged pull request [#828](https://github.com/exaloop/codon/pull/828) implemented a patch in `gpu.cpp` to handle cases where no concrete GPU kernels are realized, fixing issue #827 by ensuring no GPU module is created and no PTX blob is emitted when no definitions exist.
 
-- The pull request [#826](https://github.com/exaloop/codon/pull/826) includes significant changes with 318 additions and 2 deletions across 7 files, reflecting the complexity of the new GPU DSL implementation.
+- Opened issue [#834](https://github.com/exaloop/codon/issues/834) raised concerns about linking failures for GPU kernels using bfloat16 scalar operations due to missing compiler runtime conversion helper symbols.
+
+- Opened issue [#829](https://github.com/exaloop/codon/issues/829) highlighted that GPU optimization passes were incorrectly applied to the host module instead of the GPU module, potentially leaving GPU-only helper functions unoptimized.
+
+- Opened pull request [#826](https://github.com/exaloop/codon/pull/826) proposed a Python GPU DSL decorator implementation, which includes GPU-specific source rewriting and a dedicated callback path for launch metadata.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
