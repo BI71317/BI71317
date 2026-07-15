@@ -17,17 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged pull request [#835](https://github.com/exaloop/codon/pull/835) in the `exaloop/codon` repository added bfloat16 compiler runtime conversion helper symbols to `CMakeLists.txt`, addressing issue #834. This change ensures that the bf16 conversion helpers are default-visible before linking into `libcodonrt.so`.
+- Opened a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/839) repository to lower the default static schedule as non-chunk for OpenMP, addressing issue #838. This change inspects OpenMP decorator arguments during AST-to-CIR translation to improve performance in specific scenarios.
+  
+- Opened an issue in the [exaloop/codon](https://github.com/exaloop/codon/issues/838) repository regarding the lowering of `@par(schedule='static')` to chunked static scheduling, which negatively impacts locality and throughput for workloads requiring contiguous iteration ownership.
 
-- Merged pull request [#830](https://github.com/exaloop/codon/pull/830) updated the NVPTX optimization pipeline to apply GPU optimization passes (`gpuopt1` and `gpuopt2`) to the prepared GPU module instead of the host module, resolving issue #829.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/837) repository that added GPU fill-ins for `cnp_cos_float64` and `cnp_cos_float32`, fixing the import signature for `cnp_abs_complex64` and including test workloads for GPU NumPy vectorized loops. This addresses issue #836.
 
-- Merged pull request [#828](https://github.com/exaloop/codon/pull/828) implemented a patch in `gpu.cpp` to handle cases where no concrete GPU kernels are realized, fixing issue #827 by ensuring no GPU module is created and no PTX blob is emitted when no definitions exist.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/835) repository to export bfloat16 compiler-rt conversion builtins, ensuring they are default-visible in the Codon runtime, which resolves issue #834.
 
-- Opened issue [#834](https://github.com/exaloop/codon/issues/834) raised concerns about linking failures for GPU kernels using bfloat16 scalar operations due to missing compiler runtime conversion helper symbols.
-
-- Opened issue [#829](https://github.com/exaloop/codon/issues/829) highlighted that GPU optimization passes were incorrectly applied to the host module instead of the GPU module, potentially leaving GPU-only helper functions unoptimized.
-
-- Opened pull request [#826](https://github.com/exaloop/codon/pull/826) proposed a Python GPU DSL decorator implementation, which includes GPU-specific source rewriting and a dedicated callback path for launch metadata.
+- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/830) repository that updates the NVPTX optimization pipeline to apply LLVM optimization passes to the GPU module instead of the host, addressing issue #829.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
