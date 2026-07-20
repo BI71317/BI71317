@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/839) repository to lower the default static schedule as non-chunk for OpenMP, addressing issue #838. This change inspects OpenMP decorator arguments during AST-to-CIR translation to improve performance in specific scenarios.
+- Closed issue [#838](https://github.com/exaloop/codon/issues/838) regarding the behavior of `@par(schedule='static')`, which was found to lower to OpenMP chunked static scheduling, negatively impacting locality and throughput for certain workloads.
   
-- Opened an issue in the [exaloop/codon](https://github.com/exaloop/codon/issues/838) repository regarding the lowering of `@par(schedule='static')` to chunked static scheduling, which negatively impacts locality and throughput for workloads requiring contiguous iteration ownership.
+- Merged pull request [#837](https://github.com/exaloop/codon/pull/837) that addressed the absence of symbols in the NumPy vectorized path for GPU. This included adding GPU fill-ins for `cnp_cos_float64` and `cnp_cos_float32`, and fixing the import signature for `cnp_abs_complex64`.
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/837) repository that added GPU fill-ins for `cnp_cos_float64` and `cnp_cos_float32`, fixing the import signature for `cnp_abs_complex64` and including test workloads for GPU NumPy vectorized loops. This addresses issue #836.
+- Opened and merged pull request [#835](https://github.com/exaloop/codon/pull/835) to explicitly export bfloat16 compiler-rt conversion builtins from `codonrt`, ensuring that necessary symbols are default-visible for linking into `libcodonrt.so`.
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/835) repository to export bfloat16 compiler-rt conversion builtins, ensuring they are default-visible in the Codon runtime, which resolves issue #834.
+- Closed issue [#836](https://github.com/exaloop/codon/issues/836) that raised concerns about missing remaps for some NumPy vectorized loops on GPU, particularly regarding the handling of `np.cos` and `np.abs` for complex types.
 
-- Merged a pull request in the [exaloop/codon](https://github.com/exaloop/codon/pull/830) repository that updates the NVPTX optimization pipeline to apply LLVM optimization passes to the GPU module instead of the host, addressing issue #829.
+- Opened issue [#834](https://github.com/exaloop/codon/issues/834) discussing linking failures for GPU kernels using `bfloat16` due to missing conversion builtins, highlighting potential environment-specific issues.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
