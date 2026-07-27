@@ -30,14 +30,14 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent Activity
 <!--START_SECTION:activity-->
-1. 🔒 Closed issue [#838](https://github.com/exaloop/codon/issues/838) in [exaloop/codon](https://github.com/exaloop/codon)
-2. 💪 Opened PR [#839](https://github.com/exaloop/codon/pull/839) in [exaloop/codon](https://github.com/exaloop/codon)
-3. ❗ Opened issue [#838](https://github.com/exaloop/codon/issues/838) in [exaloop/codon](https://github.com/exaloop/codon)
-4. 🎉 Merged PR [#837](https://github.com/exaloop/codon/pull/837) in [exaloop/codon](https://github.com/exaloop/codon)
-5. 🗣 Commented on [#837](https://github.com/exaloop/codon/pull/837#issuecomment-4890197310) in [exaloop/codon](https://github.com/exaloop/codon)
-6. 💪 Opened PR [#837](https://github.com/exaloop/codon/pull/837) in [exaloop/codon](https://github.com/exaloop/codon)
-7. ❗ Opened issue [#836](https://github.com/exaloop/codon/issues/836) in [exaloop/codon](https://github.com/exaloop/codon)
-8. 🎉 Merged PR [#835](https://github.com/exaloop/codon/pull/835) in [exaloop/codon](https://github.com/exaloop/codon)
-9. 💪 Opened PR [#835](https://github.com/exaloop/codon/pull/835) in [exaloop/codon](https://github.com/exaloop/codon)
-10. ❗ Opened issue [#834](https://github.com/exaloop/codon/issues/834) in [exaloop/codon](https://github.com/exaloop/codon)
+1. 🗣 Commented on [#841](https://github.com/exaloop/codon/pull/841#issuecomment-5041229372) in [exaloop/codon](https://github.com/exaloop/codon)
+2. 🗣 Commented on [#841](https://github.com/exaloop/codon/pull/841#issuecomment-5031681153) in [exaloop/codon](https://github.com/exaloop/codon)
+3. 🗣 Commented on [#841](https://github.com/exaloop/codon/pull/841#issuecomment-5031366518) in [exaloop/codon](https://github.com/exaloop/codon)
+4. 💪 Opened PR [#841](https://github.com/exaloop/codon/pull/841) in [exaloop/codon](https://github.com/exaloop/codon)
+5. ❗ Opened issue [#840](https://github.com/exaloop/codon/issues/840) in [exaloop/codon](https://github.com/exaloop/codon)
+6. 🔒 Closed issue [#838](https://github.com/exaloop/codon/issues/838) in [exaloop/codon](https://github.com/exaloop/codon)
+7. 💪 Opened PR [#839](https://github.com/exaloop/codon/pull/839) in [exaloop/codon](https://github.com/exaloop/codon)
+8. ❗ Opened issue [#838](https://github.com/exaloop/codon/issues/838) in [exaloop/codon](https://github.com/exaloop/codon)
+9. 🎉 Merged PR [#837](https://github.com/exaloop/codon/pull/837) in [exaloop/codon](https://github.com/exaloop/codon)
+10. 🗣 Commented on [#837](https://github.com/exaloop/codon/pull/837#issuecomment-4890197310) in [exaloop/codon](https://github.com/exaloop/codon)
 <!--END_SECTION:activity-->
