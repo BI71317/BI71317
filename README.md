@@ -17,15 +17,15 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Closed issue [#838](https://github.com/exaloop/codon/issues/838) regarding the behavior of `@par(schedule='static')`, which was found to lower to OpenMP chunked static scheduling, negatively impacting locality and throughput for certain workloads.
-  
-- Merged pull request [#837](https://github.com/exaloop/codon/pull/837) that addressed the absence of symbols in the NumPy vectorized path for GPU. This included adding GPU fill-ins for `cnp_cos_float64` and `cnp_cos_float32`, and fixing the import signature for `cnp_abs_complex64`.
+- Opened a pull request in the `exaloop/codon` repository titled "[OMP] Add subtraction reduction" (PR #841) to implement subtraction handling in the OpenMP reduction path, addressing part of issue #840. The changes include the addition of `Reduction::Kind::SUB`, a subtraction reduction initializer, and detection of subtraction RHS patterns. The implementation was tested with a minimal reproducible example, confirming that the parallel execution matches the serial result.
 
-- Opened and merged pull request [#835](https://github.com/exaloop/codon/pull/835) to explicitly export bfloat16 compiler-rt conversion builtins from `codonrt`, ensuring that necessary symbols are default-visible for linking into `libcodonrt.so`.
+- Created an issue in the `exaloop/codon` repository (issue #840) highlighting the lack of OpenMP reduction support for subtraction and logical operations (`and`/`or`). The issue outlines the expected behavior and provides a minimal reproducible example demonstrating the problem.
 
-- Closed issue [#836](https://github.com/exaloop/codon/issues/836) that raised concerns about missing remaps for some NumPy vectorized loops on GPU, particularly regarding the handling of `np.cos` and `np.abs` for complex types.
+- Closed issue #838 in the `exaloop/codon` repository, which discussed the behavior of `@par(schedule='static')` lowering to chunked static scheduling, impacting performance due to round-robin iteration assignment. 
 
-- Opened issue [#834](https://github.com/exaloop/codon/issues/834) discussing linking failures for GPU kernels using `bfloat16` due to missing conversion builtins, highlighting potential environment-specific issues.
+- Merged pull request #837 in the `exaloop/codon` repository, which added GPU support for missing symbols in the NumPy vectorized path. This included changes to the handling of `cnp_cos_float64` and `cnp_cos_float32`, along with updates to the import signature for `cnp_abs_complex64` and the addition of test cases for GPU workloads.
+
+- Engaged in discussions on pull request #837 regarding the status of certain mathematical functions (`tan` and `cosh`) in the context of NumPy vectorized-loop producers, clarifying their fallback behavior and inclusion in test cases.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
