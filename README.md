@@ -17,15 +17,11 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened a pull request in the `exaloop/codon` repository titled "[OMP] Add subtraction reduction" (PR #841) to implement subtraction handling in the OpenMP reduction path, addressing part of issue #840. The changes include the addition of `Reduction::Kind::SUB`, a subtraction reduction initializer, and detection of subtraction RHS patterns. The implementation was tested with a minimal reproducible example, confirming that the parallel execution matches the serial result.
-
-- Created an issue in the `exaloop/codon` repository (issue #840) highlighting the lack of OpenMP reduction support for subtraction and logical operations (`and`/`or`). The issue outlines the expected behavior and provides a minimal reproducible example demonstrating the problem.
-
-- Closed issue #838 in the `exaloop/codon` repository, which discussed the behavior of `@par(schedule='static')` lowering to chunked static scheduling, impacting performance due to round-robin iteration assignment. 
-
-- Merged pull request #837 in the `exaloop/codon` repository, which added GPU support for missing symbols in the NumPy vectorized path. This included changes to the handling of `cnp_cos_float64` and `cnp_cos_float32`, along with updates to the import signature for `cnp_abs_complex64` and the addition of test cases for GPU workloads.
-
-- Engaged in discussions on pull request #837 regarding the status of certain mathematical functions (`tan` and `cosh`) in the context of NumPy vectorized-loop producers, clarifying their fallback behavior and inclusion in test cases.
+- Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
+- Opened or updated issue #840 in `exaloop/codon`: [OMP] Missing OpenMP reduction support for sub/and/or.
+- Merged PR #841 in `exaloop/codon`: [OMP] Add subtraction reduction.
+- Opened or updated PR #843 in `exaloop/codon`: Normalize LLVM target options before lowering.
+- Commented on issue #833 in `exaloop/codon`: Segmentation Fault When Building with --march=native.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
