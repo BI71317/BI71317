@@ -17,11 +17,11 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
+- Opened or updated PR #846 in `exaloop/codon`: [Co-Routine] Avoid materializing zero-sized LLVM values through storage paths.
+- Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
 - Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
 - Opened or updated issue #840 in `exaloop/codon`: [OMP] Missing OpenMP reduction support for sub/and/or.
 - Merged PR #841 in `exaloop/codon`: [OMP] Add subtraction reduction.
-- Opened or updated PR #843 in `exaloop/codon`: Normalize LLVM target options before lowering.
-- Commented on issue #833 in `exaloop/codon`: Segmentation Fault When Building with --march=native.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
