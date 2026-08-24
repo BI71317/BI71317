@@ -17,10 +17,10 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
+- Commented on issue #848 in `exaloop/codon`: High GC overhead in JIT workload.
 - Opened or updated PR #3 in `exaloop/llvm-project`: [GPU] add support for zero aggregation type param and returns for nvptx.
 - Opened or updated issue #847 in `exaloop/codon`: [GPU] NoneType helper ABI can emit invalid PTX when not inlined.
 - Opened or updated PR #846 in `exaloop/codon`: [Co-Routine] Avoid materializing zero-sized LLVM values through storage paths.
-- Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
 - Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
 <!--END_SECTION:activity_summary-->
 
