@@ -17,11 +17,11 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
+- Opened or updated PR #854 in `exaloop/codon`: [TypeCheck] Add guard for sealing Union.
+- Opened or updated issue #853 in `exaloop/codon`: [TypeCheck] Union tries to seal even when it is already sealed.
+- Commented on issue #850 in `exaloop/codon`: Typechecker rejects callable argument in virtual method call.
+- Opened or updated issue #850 in `exaloop/codon`: Typechecker rejects callable argument in virtual method call.
 - Commented on issue #848 in `exaloop/codon`: High GC overhead in JIT workload.
-- Opened or updated PR #3 in `exaloop/llvm-project`: [GPU] add support for zero aggregation type param and returns for nvptx.
-- Opened or updated issue #847 in `exaloop/codon`: [GPU] NoneType helper ABI can emit invalid PTX when not inlined.
-- Opened or updated PR #846 in `exaloop/codon`: [Co-Routine] Avoid materializing zero-sized LLVM values through storage paths.
-- Commented on issue #844 in `exaloop/codon`: Invalid `InsertValueInst` when awaiting multiple coroutines in one expression.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
