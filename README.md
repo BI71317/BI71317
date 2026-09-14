@@ -17,11 +17,11 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Opened or updated PR #854 in `exaloop/codon`: [TypeCheck] Add guard for sealing Union.
-- Opened or updated issue #853 in `exaloop/codon`: [TypeCheck] Union tries to seal even when it is already sealed.
-- Commented on issue #850 in `exaloop/codon`: Typechecker rejects callable argument in virtual method call.
-- Opened or updated issue #850 in `exaloop/codon`: Typechecker rejects callable argument in virtual method call.
-- Commented on issue #848 in `exaloop/codon`: High GC overhead in JIT workload.
+- Merged PR #3 in `exaloop/llvm-project`: [GPU] add support for zero aggregation type param and returns for nvptx.
+- Commented on issue #852 in `exaloop/codon`: Unicode support.
+- Commented on issue #701 in `exaloop/codon`: Printing a formatted float fails when en_US.UTF-8 is not available.
+- Merged PR #846 in `exaloop/codon`: [Co-Routine] Avoid materializing zero-sized LLVM values through storage paths.
+- Merged PR #843 in `exaloop/codon`: Normalize LLVM target options before lowering.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
