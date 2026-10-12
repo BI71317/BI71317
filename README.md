@@ -17,11 +17,7 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- Merged PR #3 in `exaloop/llvm-project`: [GPU] add support for zero aggregation type param and returns for nvptx.
-- Commented on issue #852 in `exaloop/codon`: Unicode support.
-- Commented on issue #701 in `exaloop/codon`: Printing a formatted float fails when en_US.UTF-8 is not available.
-- Merged PR #846 in `exaloop/codon`: [Co-Routine] Avoid materializing zero-sized LLVM values through storage paths.
-- Merged PR #843 in `exaloop/codon`: Normalize LLVM target options before lowering.
+- No recent public activity found.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
