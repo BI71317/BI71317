@@ -17,7 +17,7 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Summary of Recent Activity
 <!--START_SECTION:activity_summary-->
-- No recent public activity found.
+- Merged PR #810 in `exaloop/codon`: add runtime dependency in python dsl codon jit setup.
 <!--END_SECTION:activity_summary-->
 
 ## Recent Activity
