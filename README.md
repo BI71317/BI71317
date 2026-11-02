@@ -22,7 +22,7 @@ swc0317@unist.ac.kr / swchoi@nshc.net
 
 ## Recent Activity
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#3](https://github.com/exaloop/llvm-project/pull/3) in [exaloop/llvm-project](https://github.com/exaloop/llvm-project)
+1. 🎉 Merged PR [#810](https://github.com/exaloop/codon/pull/810) in [exaloop/codon](https://github.com/exaloop/codon)
 2. 🗣 Commented on [#852](https://github.com/exaloop/codon/pull/852#issuecomment-5577469569) in [exaloop/codon](https://github.com/exaloop/codon)
 3. 🗣 Commented on [#701](https://github.com/exaloop/codon/issues/701#issuecomment-5577464194) in [exaloop/codon](https://github.com/exaloop/codon)
 4. 🎉 Merged PR [#846](https://github.com/exaloop/codon/pull/846) in [exaloop/codon](https://github.com/exaloop/codon)
